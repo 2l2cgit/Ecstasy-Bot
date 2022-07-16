@@ -23,3 +23,5 @@ For VS Code:
 2. open the folder in vs code
 3. goto Terminal on vs code
 4. Type node bot.js in the terminal
+
+If you are copying this bot and edeting it you need to shout out me in the README.md file
