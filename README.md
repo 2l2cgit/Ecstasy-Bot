@@ -1,4 +1,4 @@
-# Ecstasy-Bot 1.0 Release
+# Ecstasy-Bot 
 
 This is the official Ecstasy Bot 
 
