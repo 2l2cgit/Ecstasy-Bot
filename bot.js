@@ -20,7 +20,7 @@ bot.on('end', function () {
     }
 })        
 
-
+///Login for cracked servers
 var isLogin = false;
 
 bot.on("message", jsonMsg => {
@@ -38,9 +38,6 @@ const discordBot = new Discord.Client({
    intents: [Discord.Intents.FLAGS.GUILD_MESSAGES],
 });
 
-const discordServerID = config.dc.server;
-const chatChannelID = config.dc.channel;
-
 // Console log bot logins and disconnects
 discordBot.on('ready', () => {
    console.log(`The Discord bot ${discordBot.user.username} is ready!`);
@@ -53,6 +50,9 @@ bot.on('login', () => {
 bot.on('end', () => {
    console.log('Minecraft bot disconnected from the server.');
 });
+
+const discordServerID = config.dc.server;
+const chatChannelID = config.dc.channel;
 
 // Send message to channel in server
 async function toDiscordChat(msg) {
@@ -67,7 +67,6 @@ discordBot.on('messageCreate', async (message) => {
    try {
       if (message.author.id === discordBot.user.id || message.channel.id !== chatChannelID || message.author.bot) return;
       bot.chat(`Discord <||> ${message.author.username}: ${message.content}`);
-      toDiscordChat(`Discord <||> ${message.author.username}: ${message.content}`);
    } catch (err) {
       console.error(err);
    }
