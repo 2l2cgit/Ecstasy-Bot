@@ -109,7 +109,7 @@ bot.on("chat", (username, message) => {
 //discord command
 bot.on("message", jsonMsg => {
    if (jsonMsg.toString().includes("%discord")) 
-   bot.chat("gg/6tmcPEUxWu > shortend because of chat filter");
+   bot.chat("YOUR SERVER INVITE HERE"); // YOUR SERVER INVITE HERE //
 });
 
 //auto tpa acceptor
