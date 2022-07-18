@@ -86,7 +86,7 @@ bot.on("chat", (username, message) => {
    if(message === "%coords") {
       bot.chat("My Coords are: " + bot.entity.position.toString())
    }
-})
+});
 
 const fs = require('fs');
 
@@ -94,7 +94,7 @@ bot.on('messagestr', message => {
   fs.appendFile('./chat.txt', message + '\n', (err) => {
     if (err) console.error(err)
   })
-})
+});
 
 //crash command
 bot.on("chat", (username, message) => {
@@ -104,14 +104,24 @@ bot.on("chat", (username, message) => {
       bot.chat("I ragequit")
       bot.quit()
    }
-})
+});
 
 //discord command
-bot.on("chat", (username, message) => {
-   if(username === bot.username) return
-   if(message === "%discord") {
-      bot.chat("https://discord.gg/6tmcPEUxWu")
-   }
-})
+bot.on("message", jsonMsg => {
+   if (jsonMsg.toString().includes("%discord")) 
+   bot.chat("gg/6tmcPEUxWu > shortend because of chat filter");
+});
+
+//auto tpa acceptor
+bot.on("message", jsonMsg => {
+   if (jsonMsg.toString().includes("has requested to teleport to you.")) 
+   bot.chat("/tpaccept");
+});
+
+//kill command
+bot.on("chat", (username, jsonMsg) => {
+   if (username != config.mc.admin) return
+   if (jsonMsg.toString().includes("%kill")) bot.chat("/kill");
+});
 
 discordBot.login(config.dc.token);
