@@ -4,11 +4,12 @@
       "version": "YOUR VERSION",
       "username": "YOUR MC BOTS NAME",
       "password": "YOUR PASSWORD FOR CRACKED SERVERS",
-      "admin": "THE  MC NAME OF THE OWNER OF THE BOT" 
+      "admin": "THE MC NAME OF THE OWNER OF THE BOT" 
     },
     "dc": {
       "token": "YOUR DISCORD TOKEN", 
       "server": "YOUR SERVER ID",
-      "channel": "YOUR CHANNEL ID"
+      "channel": "YOUR CHANNEL ID",
+      "invite": "YOUR DISCORD SERVER LINK"
     }
   }
