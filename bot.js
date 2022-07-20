@@ -1,12 +1,28 @@
 const mineflayer = require("mineflayer");
 const config = require("./config.json");
 const password = config.mc.password
-console.log("Bot Is Connected!")
 const bot = mineflayer.createBot({
         username: config.mc.username,
         host: config.mc.host,
         verison: config.mc.verison
-})
+});
+
+console.log(`
+
+      ███████╗░█████╗░░██████╗████████╗░█████╗░░██████╗██╗░░░██╗  ██████╗░░█████╗░████████╗
+      ██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔════╝╚██╗░██╔╝  ██╔══██╗██╔══██╗╚══██╔══╝
+      █████╗░░██║░░╚═╝╚█████╗░░░░██║░░░███████║╚█████╗░░╚████╔╝░  ██████╦╝██║░░██║░░░██║░░░
+      ██╔══╝░░██║░░██╗░╚═══██╗░░░██║░░░██╔══██║░╚═══██╗░░╚██╔╝░░  ██╔══██╗██║░░██║░░░██║░░░
+      ███████╗╚█████╔╝██████╔╝░░░██║░░░██║░░██║██████╔╝░░░██║░░░  ██████╦╝╚█████╔╝░░░██║░░░
+      ╚══════╝░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░  ╚═════╝░░╚════╝░░░░╚═╝░░░
+
+                                  Release 1.3
+                           Programmed by OxygenV#8291
+
+`);
+
+console.log("Bot Is Connected!")
+
 
 // Auto Reconnect
 const RECONNECT = false
@@ -18,7 +34,7 @@ bot.on('end', function () {
     if(RECONNECT){
         createBot()
     }
-})        
+});
 
 ///Login for cracked servers
 var isLogin = false;
@@ -89,6 +105,7 @@ bot.on("chat", (username, message) => {
 });
 
 const fs = require('fs');
+const { json } = require("express");
 
 bot.on('messagestr', message => {
   fs.appendFile('./chat.txt', message + '\n', (err) => {
@@ -99,7 +116,7 @@ bot.on('messagestr', message => {
 //crash command
 bot.on("chat", (username, message) => {
    if(username === bot.username) return
-       if (username != '2l2c') return;
+       if (username != config.mc.admin) return;
    if (message === "%crash") {
       bot.chat("I ragequit")
       bot.quit()
@@ -109,7 +126,7 @@ bot.on("chat", (username, message) => {
 //discord command
 bot.on("message", jsonMsg => {
    if (jsonMsg.toString().includes("%discord")) 
-   bot.chat("YOUR SERVER INVITE HERE"); // YOUR SERVER INVITE HERE //
+   bot.chat(config.dc.invite);
 });
 
 //auto tpa acceptor
@@ -124,4 +141,13 @@ bot.on("chat", (username, jsonMsg) => {
    if (jsonMsg.toString().includes("%kill")) bot.chat("/kill");
 });
 
+bot.on("message", (username, message) => {
+   if(username != config.mc.admin) return
+   if(message === "%test") {
+      bot.chat("niceeeeee")
+   }
+   
+})
+
 discordBot.login(config.dc.token);
+
