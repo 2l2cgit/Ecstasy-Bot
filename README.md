@@ -1,5 +1,7 @@
 # Ecstasy-Bot 
 
+https://discord.gg/6tmcPEUxWu
+
 This is the official Ecstasy Bot 
 
 The pefix is "%" for all commands
